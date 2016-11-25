@@ -1,0 +1,149 @@
+<!doctype html>
+<html lang="en">
+<head>
+<link rel="stylesheet" href="../styles.css">
+</head>
+
+<body>
+
+<div>
+<h3>General information</h3>
+<p>All queries should select the ob (observing block) column, since the webpage needs it in order
+to display the buttons.</p>
+<p>Every field is inspected by two people, and thus is
+in the database twice. Queries that show all fields with a comment submitted by 
+both of the persons might not display properly. Those fields would be returned
+twice and the webpage can have each field at most once. Therefore it is preferable
+to query with SELECT DISTINCT.</p>
+</div>
+
+<div>
+<h3>Useful queries:</h3>
+<ul>
+  <li>See all of the fields available: <span style="font-weight:bold">SELECT DISTINCT ob FROM kids_theliqc</span></li><br>
+  <li>Fields within sky coordinates (declination column is named de): 
+  <span style="font-weight:bold">SELECT DISTINCT ob FROM kids_theliqc WHERE ra>180 AND ra&lt;220 AND de&lt;0 AND de>-30</span></li><br>
+  <li>All fields with fringing: <span style="font-weight:bold">SELECT DISTINCT ob FROM kids_theliqc WHERE i_fringing = 1 ORDER BY ra, de ASC</span></li><br>
+  <li>The fields passed or ready to pass on to Edinburgh: <span style="font-weight:bold">SELECT DISTINCT ob FROM kids_theliqc WHERE submit_to_edinburgh = 1 ORDER BY ra, de ASC</span></li>
+</ul>
+</div>
+
+<div>
+<h3>The database and available columns:</h3>
+<ul>
+  <li>It has one table named kids_theliqc.</li><br>
+  
+  <li>Below the column names are in bold.</li><br>
+  
+  <li>Useful columns:</li>
+  <ul>
+    <li>observing block (e.g. KIDS_0p0_m34p1): <span style="font-weight:bold">ob</span> varchar(20) NOT NULL</li>
+    <li>right ascension: <span style="font-weight:bold">ra</span> float NOT NULL</li>
+    <li>declination: <span style="font-weight:bold">de</span> float NOT NULL</li>
+  </ul><br>
+  
+  <li>Columns for issues:</li>
+  <ul>
+    <li><span style="font-weight:bold">r_cross_talk </span>tinyint(1) DEFAULT NULL</li>
+    <li><span style="font-weight:bold">r_elec_noise </span>tinyint(1) DEFAULT NULL</li>
+    <li><span style="font-weight:bold">r_sat_track </span>tinyint(1) DEFAULT NULL</li>
+    <li><span style="font-weight:bold">r_gain_jumps </span>tinyint(1) DEFAULT NULL</li>
+    <li><span style="font-weight:bold">r_bckgd_var </span>tinyint(1) DEFAULT NULL</li>
+    <li><span style="font-weight:bold">r_reflections </span>tinyint(1) DEFAULT NULL</li>
+    <li><span style="font-weight:bold">r_weight_unusual </span>tinyint(1) DEFAULT NULL</li>
+    <li><span style="font-weight:bold">r_missing_ccd </span>tinyint(1) DEFAULT NULL</li>
+    <li><span style="font-weight:bold">r_gal_turnover </span>tinyint(1) DEFAULT NULL</li>
+    <li><span style="font-weight:bold">r_star_sel </span>tinyint(1) DEFAULT NULL</li>
+    <li><span style="font-weight:bold">r_astro </span>tinyint(1) DEFAULT NULL</li>
+    <li><span style="font-weight:bold">r_psf </span>tinyint(1) DEFAULT NULL</li>
+    <li><span style="font-weight:bold">i_cross_talk </span>tinyint(1) DEFAULT NULL</li>
+    <li><span style="font-weight:bold">i_elec_noise </span>tinyint(1) DEFAULT NULL</li>
+    <li><span style="font-weight:bold">i_sat_track </span>tinyint(1) DEFAULT NULL</li>
+    <li><span style="font-weight:bold">i_gain_jumps </span>tinyint(1) DEFAULT NULL</li>
+    <li><span style="font-weight:bold">i_bckgd_var </span>tinyint(1) DEFAULT NULL</li>
+    <li><span style="font-weight:bold">i_reflections </span>tinyint(1) DEFAULT NULL</li>
+    <li><span style="font-weight:bold">i_weight_unusual </span>tinyint(1) DEFAULT NULL</li>
+    <li><span style="font-weight:bold">i_missing_ccd </span>tinyint(1) DEFAULT NULL</li>
+    <li><span style="font-weight:bold">i_gaps </span>tinyint(1) DEFAULT NULL</li>
+    <li><span style="font-weight:bold">i_fringing </span>tinyint(1) DEFAULT NULL</li>
+    <li><span style="font-weight:bold">i_gal_turnover </span>tinyint(1) DEFAULT NULL</li>
+    <li><span style="font-weight:bold">i_star_sel </span>tinyint(1) DEFAULT NULL</li>
+    <li><span style="font-weight:bold">i_astro </span>tinyint(1) DEFAULT NULL</li>
+    <li><span style="font-weight:bold">i_psf </span>tinyint(1) DEFAULT NULL</li>
+  </ul><br>
+  
+  <li>PSF statistics columns:</li>
+  <ul>
+    <li><span style="font-weight:bold">i_e1_1 </span>double DEFAULT NULL</li>
+    <li><span style="font-weight:bold">i_e1_2 </span>double DEFAULT NULL</li>
+    <li><span style="font-weight:bold">i_e1_3 </span>double DEFAULT NULL</li>
+    <li><span style="font-weight:bold">i_e1_4 </span>double DEFAULT NULL</li>
+    <li><span style="font-weight:bold">i_e1_5 </span>double DEFAULT NULL</li>
+    <li><span style="font-weight:bold">r_e1_1 </span>double DEFAULT NULL</li>
+    <li><span style="font-weight:bold">r_e1_2 </span>double DEFAULT NULL</li>
+    <li><span style="font-weight:bold">r_e1_3 </span>double DEFAULT NULL</li>
+    <li><span style="font-weight:bold">r_e1_4 </span>double DEFAULT NULL</li>
+    <li><span style="font-weight:bold">r_e1_5 </span>double DEFAULT NULL</li>
+    <li><span style="font-weight:bold">i_e2_1 </span>double DEFAULT NULL</li>
+    <li><span style="font-weight:bold">i_e2_2 </span>double DEFAULT NULL</li>
+    <li><span style="font-weight:bold">i_e2_3 </span>double DEFAULT NULL</li>
+    <li><span style="font-weight:bold">i_e2_4 </span>double DEFAULT NULL</li>
+    <li><span style="font-weight:bold">i_e2_5 </span>double DEFAULT NULL</li>
+    <li><span style="font-weight:bold">r_e2_1 </span>double DEFAULT NULL</li>
+    <li><span style="font-weight:bold">r_e2_2 </span>double DEFAULT NULL</li>
+    <li><span style="font-weight:bold">r_e2_3 </span>double DEFAULT NULL</li>
+    <li><span style="font-weight:bold">r_e2_4 </span>double DEFAULT NULL</li>
+    <li><span style="font-weight:bold">r_e2_5 </span>double DEFAULT NULL</li>
+    <li><span style="font-weight:bold">i_e1_SDEV_1 </span>double DEFAULT NULL</li>
+    <li><span style="font-weight:bold">i_e1_SDEV_2 </span>double DEFAULT NULL</li>
+    <li><span style="font-weight:bold">i_e1_SDEV_3 </span>double DEFAULT NULL</li>
+    <li><span style="font-weight:bold">i_e1_SDEV_4 </span>double DEFAULT NULL</li>
+    <li><span style="font-weight:bold">i_e1_SDEV_5 </span>double DEFAULT NULL</li>
+    <li><span style="font-weight:bold">r_e1_SDEV_1 </span>double DEFAULT NULL</li>
+    <li><span style="font-weight:bold">r_e1_SDEV_2 </span>double DEFAULT NULL</li>
+    <li><span style="font-weight:bold">r_e1_SDEV_3 </span>double DEFAULT NULL</li>
+    <li><span style="font-weight:bold">r_e1_SDEV_4 </span>double DEFAULT NULL</li>
+    <li><span style="font-weight:bold">r_e1_SDEV_5 </span>double DEFAULT NULL</li>
+    <li><span style="font-weight:bold">i_e2_SDEV_1 </span>double DEFAULT NULL</li>
+    <li><span style="font-weight:bold">i_e2_SDEV_2 </span>double DEFAULT NULL</li>
+    <li><span style="font-weight:bold">i_e2_SDEV_3 </span>double DEFAULT NULL</li>
+    <li><span style="font-weight:bold">i_e2_SDEV_4 </span>double DEFAULT NULL</li>
+    <li><span style="font-weight:bold">i_e2_SDEV_5 </span>double DEFAULT NULL</li>
+    <li><span style="font-weight:bold">r_e2_SDEV_1 </span>double DEFAULT NULL</li>
+    <li><span style="font-weight:bold">r_e2_SDEV_2 </span>double DEFAULT NULL</li>
+    <li><span style="font-weight:bold">r_e2_SDEV_3 </span>double DEFAULT NULL</li>
+    <li><span style="font-weight:bold">r_e2_SDEV_4 </span>double DEFAULT NULL</li>
+    <li><span style="font-weight:bold">r_e2_SDEV_5 </span>double DEFAULT NULL</li>
+  </ul><br>
+
+  <li>Rest of the columns:</li>
+  <ul>
+    <li><span style="font-weight:bold">id </span>smallint(6) NOT NULL AUTO_INCREMENT</li>
+    <li><span style="font-weight:bold">user </span>varchar(15) NOT NULL. Possible values are brouwer, cacciato, dejong, eriksen, kohlinger, kuijken, irisarri, sifon, viola.</li>
+    <li><span style="font-weight:bold">theli_version </span>varchar(10) CHARACTER SET latin1 DEFAULT NULL</li>
+    <li><span style="font-weight:bold">run_r </span>varchar(15) DEFAULT NULL</li>
+    <li><span style="font-weight:bold">run_i </span>varchar(15) DEFAULT NULL</li>
+    <li><span style="font-weight:bold">date_insert </span>timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
+    <li><span style="font-weight:bold">other_calib </span>tinytext</li>
+    <li><span style="font-weight:bold">other_coadd </span>tinytext</li>
+    <li><span style="font-weight:bold">other_mags </span>tinytext</li>
+    <li><span style="font-weight:bold">other_masks </span>tinytext</li>
+    <li><span style="font-weight:bold">other_psf </span>tinytext</li>
+    <li><span style="font-weight:bold">submit_noissues_calib </span>tinyint(1) DEFAULT NULL</li>
+    <li><span style="font-weight:bold">submit_noissues_coadd </span>tinyint(1) DEFAULT NULL</li>
+    <li><span style="font-weight:bold">submit_noissues_mags </span>tinyint(1) DEFAULT NULL</li>
+    <li><span style="font-weight:bold">submit_noissues_masks </span>tinyint(1) DEFAULT NULL</li>
+    <li><span style="font-weight:bold">submit_noissues_psf </span>tinyint(1) DEFAULT NULL</li>
+    <li><span style="font-weight:bold">inspected_calib </span>tinyint(1) DEFAULT NULL</li>
+    <li><span style="font-weight:bold">inspected_coadd </span>tinyint(1) DEFAULT NULL</li>
+    <li><span style="font-weight:bold">inspected_mags </span>tinyint(1) DEFAULT NULL</li>
+    <li><span style="font-weight:bold">inspected_masks </span>tinyint(1) DEFAULT NULL</li>
+    <li><span style="font-weight:bold">inspected_psf </span>tinyint(1) DEFAULT NULL</li>
+    <li><span style="font-weight:bold">submit_to_edinburgh </span>tinyint(4) NOT NULL DEFAULT '0'</li>
+  </ul>
+
+</ul>
+</div>
+
+</body>
+</html>

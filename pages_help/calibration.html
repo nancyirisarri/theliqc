@@ -1,0 +1,21 @@
+<link rel="stylesheet" href="../styles.css">
+<script>
+window.onload = function(){
+    
+    document.getElementById('close').onclick = function() {
+        parent.document.getElementById('iframe-help-calib').setAttribute('style', 'display:none');
+        //ifr.parentNode.removeChild(ifr);
+
+        //this.parentNode.parentNode.parentNode
+        //.removeChild(this.parentNode.parentNode);
+        //return false;
+    };
+};
+</script>
+<div>
+<h3>Cross-talk<img id="close" src="../images/buttons/close.png" width="2%"></h3>
+<img src="../images/help/cross-talk.jpg" width="80%"/><br>
+Image credit: http://ftp.ctio.noao.edu/noao/content/crosstalk-ctio-blanco-4m.
+If you have access, see the <a href="http://wiki.astro-wise.org/projects:kids:crosstalk">
+Astro-WISE KiDS wiki</a>.
+</div>

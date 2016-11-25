@@ -1,0 +1,118 @@
+#pointings {
+  float: left;
+  width: 13%;
+  height: 95vh;
+  border: 1px solid #aaaaaa;
+  border-radius: 4px;
+  padding: .2em;
+  overflow: auto;
+}
+#tabs {
+  float: left;
+  width: 85%;
+  height: 95vh;
+  overflow: auto;
+}
+#div-form-calib, #div-form-coadd, #div-form-mags, #div-form-masks, #div-form-psf,
+#div-comments-calib, #div-comments-coadd, #div-comments-mags, #div-comments-masks,
+#div-comments-psf, #div-psf-stats {
+  border: 1px solid;
+  border-radius: 4px;
+  padding: .2em;
+  width: 15%;
+  height: 100%;
+  float: left;
+  margin-right: 3px;
+  margin-bottom: 3px;
+  overflow: auto;
+}
+#div-psf-stats {
+  width: 25%;
+}
+#div-form-coadd, #div-form-mags {
+  margin-left: 3px;
+}
+#div-form-mags, #div-comments-mags {
+  margin-top: 28px;
+}
+#div-form-calib, #div-form-coadd, #div-form-mags, #div-form-masks, #div-form-psf {
+  border-color: red;
+  color: red;
+}
+#div-comments-calib, #div-comments-coadd, #div-comments-mags, #div-comments-masks, #div-comments-psf {
+  border-color: green;
+  color: green;
+}
+#div-psf-stats {
+  width: 35%;
+}
+#div-iframe-edinburgh {
+  color: green;
+  font-size: large;
+  font-weight: bold;
+}
+#close {
+  float:right;
+  display:inline-block;
+  padding:2px 5px;
+  cursor: pointer;
+}
+#img-help-calib, #img-help-coadd, #img-help-mags, #img-help-psf {
+  cursor: pointer;
+  float: right;
+}
+#iframe-help-calib, #iframe-help-coadd, #iframe-help-mags, #iframe-help-psf {
+  display: none;
+  width: 50%;
+  height: 80%;
+  background: #000000;
+}
+.div-current-pointing {
+  float: left;
+  padding: 0px 0px 0px 0px;
+  margin: 0px 0px 0px 0px;
+  border-radius: 4px;
+  border-color: yellow;
+  background-color: yellow;
+}
+.refresh_comments {
+  background: rgba(0,0,0,0) url('refresh-button.jpg') no-repeat center;
+  color: rgba(0, 0, 0, 0);
+  width: 10%;
+  height: 10%;
+  border: 0px;
+}
+.div-submit-results {
+  width: 30%;
+}
+.div-inst {
+  float: left;
+  margin-left: 5%;
+  width: 80%;
+}
+.div-instructions-lr, .div-instructions-tb {
+  float: left;
+}
+input[type="button"] {
+/*
+  width: 33%;
+  height: 3%;
+  font-size: 10px;
+*/
+  padding: 0px 0px 0px 0px;
+  margin: 0px 0px 0px 0px;
+}
+td {
+  text-align: center;
+  vertical-align: center;
+  border: 1px solid;
+  padding: 5px;
+}
+iframe {
+  width: 80%;
+  height: 100%;
+  border: 0px;
+}
+body {
+  font-family: arial;
+}

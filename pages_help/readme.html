@@ -1,0 +1,36 @@
+<!doctype html>
+<html lang="en">
+<head>
+<link rel="stylesheet" href="../styles.css">
+</head>
+
+<body>
+
+<div>
+<h3>How the interface works:</h3>
+<ul>
+  <li>The green box 'Submissions in database:' shows what is stored in the database and is updated when clicking the submit buttons.</li>
+  <li>The 'Submit good for Edinburgh' works separately from the issues. For example, a pointing can have calibration issues but still be marked as good for further processing by Edinburgh.</li>
+  <li>The PSF tab has a table with the PSF statistics; ellipticity means and dispersions with absolute value >0.1 and 0.05, respectively, are marked in red.</li>
+  <li>Field buttons are red to indicate it has not been inspected, while green indicates it has been inspected with or without issues.</li>
+  <li>A field is considered inspected if submissions have been made for all tabs, that is, calibration, coadd, number counts, and psf.</li>
+  <li>For now, after you make all these submissions, the colors and 'Submissions in database:' will only be updated if you refresh the page.</li>
+  <li>Submitting non-checked checkboxes removes the previously stored value in the database. Submitting 'other' input replaces the previously stored value.</li>
+</ul>
+</div>
+
+<br>
+
+<div>
+<h3>Notes on the issues:</h3>
+<ul>
+  <li>Satellite tracks remaining in the coadd prevent the data from going to Edinburgh!</li>
+  <li>Fringing should be reported since the information is useful, but does not prevent the data from going to Edinburgh.</li>
+  <li>As long as the astrometry dispersion is around 0.15", it should be flagged as ok. It will not compromise the quality of the catalogue,
+  which is based on the stack, and lens for measures shapes based on individual exposures.</li>
+  <li>If some plots are missing, they can be ignored. Possibly in the future the plots will be added.</li>
+</ul>
+</div>
+
+</body>
+</html>
